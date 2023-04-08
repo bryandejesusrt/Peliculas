@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css" />
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+           
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/save-pelicula">Añadir nuevas Peliculas!!</a>
+            </li>        
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/pelicula">Generadas</a>
+            </li>          
+          </ul>          
+        <div>
+
+        <form method="POST" class=" d-inline-flex " action="/movies">
+
+          <select id="genero" name="genero" class="form-select border-radius d-inline-flex  mx-4 bg-success text-light " >
+            <option value=""selected>Seleccione un genero.</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Accion">Accion</option>
+            <option value="Documentales">Documentales</option>
+            <option value="Suspenso">Suspenso</option>
+            <option value="Terror">Terror</option>
+          </select>
+
+          <button class=" btn bg-warning" type="submit">Buscar</button>
+        </form>
+      </div>
+      </div>
+      </div>
+    </nav>
+    <div class="container">
+
+    {{{body}}}
+    </div>
+
+  </body>
+</html>

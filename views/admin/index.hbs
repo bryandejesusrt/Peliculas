@@ -1,0 +1,38 @@
+<main>
+
+  <div class="main-container">
+    <h1 class=" text-center p-3 mb-2 bg-secondary text-white ">Peliculas Generadas.</h1>
+    <div class="row">
+
+      {{#if hasMovies}}
+      {{#each pelis}}
+
+      <div class="col-md-4 mt-5">
+        <div class="card  {{#if this.activo}} bg-dark text-light {{else}}bg-secondary text-light{{/if}} ">
+
+          <div class="card-body">
+
+            <h5 class="card-title text-info">Titulo: {{this.titulo}}</h5>
+            <img src="{{this.urlImg}}" class="card-img-top" alt="{{this.titulo}}">
+            <p class="card-text">Descripcion: {{this.descripcion}}</p>
+            <p class="card-text">Genero: {{this.genero}}</p>
+            <p class="card-text ">Activo: {{#if this.activo}}Activa{{else}}Desactiva{{/if}}</p>
+
+         <div class="d-flex justify-content-center align-items-center">
+          <form action="/admin/borrar" method="post" class="btn-group">
+            <a class="btn btn-info text-light" href="/admin/editar/{{this.id}}?editMode=true">Editar</a>
+            <button type="submit" href="/admin/movies" class="btn btn-danger">Borrar</button>
+            <input type="hidden" value="{{this.id}}" name="movieId">            
+          </form>
+        </div>
+
+          </div>   
+        </div>
+      <div>     
+      </div>
+    </div>
+
+    {{/each}}
+    {{/if}}
+  </div>
+</main>

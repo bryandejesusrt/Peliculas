@@ -1,0 +1,27 @@
+<main>
+    <div class="row">
+        <h1 class="text-center  p-3 mb-2 bg-secondary text-white ">Peliculas de {{genero}}</h1>
+
+        {{#if filtro}}
+        {{#if hasMoviesF}}
+        {{#each  pelisF as |peli|}}
+
+        <div class="col-md-4 mt-5">
+            <div class="card  {{#if this.activo}} bg-dark text-light {{else}}bg-secondary text-light{{/if}}d">
+                <img src="{{peli.urlImg}}" class="card-img-top" alt="{{peli.titulo}}">
+                <div class="card-body">
+                    <p class="card-title text-info">Titulo: {{this.titulo}}</p>
+                    <p class="card-text">Descripcion: {{this.descripcion}}</p>
+                    <p class="card-text">Genero: {{this.genero}}</p>
+                    <p class="card-text ">Activo: {{#if this.activo}}Activa{{else}}Desactiva{{/if}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h4 class="  text-center">No hay Ninguna peliculas de {{genero}}!!</h4>
+        {{/if}}        
+        {{/if}}
+    </div>
+
+</main>

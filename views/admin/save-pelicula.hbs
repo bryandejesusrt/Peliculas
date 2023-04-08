@@ -1,0 +1,63 @@
+<main>
+  <div class="card">
+    <div class="card-header p-3 mb-2 bg-success text-white">
+      <h2 class=" text-center  ">Agregar peliculas</h2>
+    </div>
+
+    <div class="card-body">
+
+      <form method="POST" action="{{#if editMode}}/admin/editar{{else}}/admin/save-movie{{/if}}">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="titulo" name="titulo" value="{{#if editMode}}{{Pelicula.titulo}}{{/if}}" />
+        </div>
+
+        <div class="mb-3">
+          <label for="urlImg" class="form-label">Link de la imagen:</label>
+          <input type="text" class="form-control" id="urlImg" name="urlImg" value="{{#if editMode}}{{Pelicula.urlImg}}{{/if}}" />
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripcion:</label>
+          <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{#if editMode}}{{Pelicula.descripcion}}{{/if}}" />
+        </div>
+
+        <div class="mb-3">
+          <label for="genero" class="form-label">Genero:</label>
+          <select required name="genero" id="genero" class=" form-select border-radius ">
+            <option value=""{{#if editMode}}{{else}}selected{{/if}}>Seleccione un genero.</option>
+            <option value="Accion"{{#if editMode}}{{#if (DeterminaAccion movie.genero) }}selected{{/if}}{{/if}}>Accion</option>
+            <option value="Comedia" {{#if editMode}}{{#if (DeterminaComedia movie.genero) }}selected{{/if}}{{/if}}>Comedia</option>
+            <option value="Suspenso" {{#if editMode}}{{#if (DeterminaSuspenso movie.genero) }}selected{{/if}}{{/if}}>Suspenso</option>
+            <option value="Documentales"{{#if editMode}}{{#if (DeterminaDocumentales movie.genero) }}selected{{/if}}{{/if}}>Documentales</option>
+            <option value="Terror"{{#if editMode}}{{#if (DeterminaTerror movie.genero) }}selected{{/if}}{{/if}}>Terror</option>                
+          </select>
+        </div>
+
+        <div>
+          {{#if editMode}}
+          <div>
+            <label for="activo" class="form-label">Activo:</label>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" value="Si" name="activo" id="activo" type="radio"{{#if editMode}}{{#if Pelicula.activo}}checked{{/if}}{{else}}checked{{/if}} >
+            <label for="activo" class="form-check-label">Activa</label>
+          </div>
+        
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" value="No" name="activo" id="noactivo" type="radio"{{#if editMode}} {{#if Pelicula.activo}}{{else}}checked {{/if}}{{/if}} >
+            <label for="noactivo" class="form-check-label">Desactiva</label>      
+          </div>
+        </div>
+
+        {{/if}}
+
+        {{#if editMode}}
+          <input type="hidden" value="{{Pelicula.id}}" name="movieId">
+        {{/if}}
+
+        <button id="enviar" type="submit" class="btn btn-primary">{{#if editMode}}Update{{else}}Add{{/if}}</button>
+      </form>
+    </div>
+  </div>
+</main>

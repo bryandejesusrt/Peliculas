@@ -1,0 +1,16 @@
+<main>
+  <div class="row">
+
+  <div class="col-md-4 mt-5">
+    <div class="card {{#if peli.activo}} bg-dark text-light {{else}}bg-secondary text-light{{/if}}">
+      <img src="{{peli.urlImg}}" class="card-img-top" alt="{{peli.titulo}}">
+      <div class="card-body">
+        <h5 class="card-text text-info">Titulo: {{peli.titulo}}</h5>
+        <p class="card-text">Descripcion: {{peli.descripcion}}</p>
+        <p class="card-text">Genero: {{peli.genero}}</p>
+        <p class="card-text ">Activo: {{#if peli.activo}}Activa{{else}}Desactivo{{/if}}</p>   
+
+      </div>
+    </div>
+  </div>
+</main>

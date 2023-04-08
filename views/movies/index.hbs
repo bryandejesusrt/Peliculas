@@ -1,0 +1,31 @@
+
+<main>
+  <h1 class="text-center  p-3 mb-2 bg-secondary text-white  ">Peliculas.</h1>
+
+  <div class="main-container">
+    <div class="row">
+
+      {{#if hasMovies}}
+
+      {{#each pelis}}
+
+      <div class="col-md-4 mt-5">
+        <div class="card {{#if this.activo}} bg-dark text-light {{else}}bg-secondary text-light{{/if}}">
+          <img src="{{this.urlImg}}" class="card-img-top" alt="{{this.titulo}}">
+
+          <div class="card-body">
+            <h5 class="card-text text-info">Titulo: {{this.titulo}}</h5>
+            <p class="card-text">Descripcion: {{this.descripcion}}</p>
+            <p class="card-text">Genero: {{this.genero}}</p>
+            <p class="card-text ">Activo: {{#if this.activo}}Activa{{else}}Desactiva{{/if}}</p>         
+
+            <div class="d-flex justify-content-center">
+              <a class="btn bg-warning" href="/movies/{{this.id}}">Detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+       {{/each}}
+   </div>
+       {{/if}}
+</main>
